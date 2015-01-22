@@ -2,11 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>View</title>
+        <title>Read</title>
     </head>
     <body>
         <?php
- $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015", "root", "");
+$db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3307;", "root", "");
   
  $dbs = $db->prepare('select * from demo');  
         
@@ -34,17 +34,10 @@
         echo '</ul>';
         
     } else {
-        echo 'No results found'; // echo out results 
+        echo 'No results found';
     }
            
         
         ?>
     </body>
 </html>
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-

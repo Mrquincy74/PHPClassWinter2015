@@ -1,11 +1,3 @@
-
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,9 +6,9 @@
     </head>
     <body>
 <?php
-    $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015", "root", "");
+    $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3307;", "root", "");
   
-    $dbs = $db->prepare('update demo set name = :name, email = :email');  
+    $dbs = $db->prepare('insert demo set name = :name, email = :email');  
     
     $name = 'test';
     $email = 'test@test.com';
