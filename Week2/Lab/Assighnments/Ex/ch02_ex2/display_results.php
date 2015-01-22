@@ -3,6 +3,10 @@
     $investment = $_POST['investment'];
     $interest_rate = $_POST['interest_rate'];
     $years = $_POST['years'];
+    // date echo 
+    echo "This calculation was done on" . $date = date('y-m-d');
+   
+    
 
     // validate investment entry
     if ( empty($investment) ) {
@@ -17,8 +21,12 @@
         $error_message = 'Interest rate is a required field.'; }
     else if ( !is_numeric($interest_rate) )  {
         $error_message = 'Interest rate must be a valid number.'; }
-    else if (( $interest_rate > 0 ) || ( $interest_rate <= 15))  {
-        $error_message = 'Interest rate must be greater than zero or eaqul to 15%.'; }
+    else if (( $interest_rate < 0 ) || ( $interest_rate >= 15))  {
+        $error_message = 'Interest rate must be greater than zero or equal to 15%.'; }
+        
+    else if (( $years < 0) || ($years >= 50)){
+        $error_message = 'Yearly Investment must be greater than zero or equal to 50.';
+    }
 
     // set error message to empty string if no invalid entries
     else {
@@ -32,7 +40,7 @@
 
     // calculate the future value
     $future_value = $investment;
-    for ($i = 1; $i <= $years; $i++) {
+    for ($i = 1; $i <=  $years; $i++) {
         $future_value = ($future_value + ($future_value * $interest_rate *.01));
     }
     // apply currency and percent formatting
