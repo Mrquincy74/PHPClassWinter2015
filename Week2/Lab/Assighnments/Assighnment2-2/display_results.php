@@ -9,30 +9,46 @@
     $error_message = ''; 
         
     if ( empty($investment) ) {
-        $error_message .= '<p>Investment is a required field.</p>'; 
-        
+        $error_message .= '<p>*Investment is a required field.</p>'; 
     }
      if ( !is_numeric($investment) )  {
-        $error_message .= '<p>Investment must be a valid number.</p>'; 
+        $error_message .= '<p>*Investment must be a valid number.</p>'; 
         
      }
      if ( $investment <= 0 ) {
-        $error_message .= '<p>Investment must be greater than zero.</p>'; }
+        $error_message .= '<p>*Investment must be greater than zero.</p>';
+        
+        
+     }
 
     // validate interest rate entry
      if ( empty($interest_rate) ) {
-        $error_message .= '<p>Interest rate is a required field.</p>'; 
+        $error_message .= '<p>*Interest rate is a required field.</p>'; 
         
      }
     if ( !is_numeric($interest_rate) )  {
-        $error_message .= '<p>Interest rate must be a valid number.<p/>'; 
+        $error_message .= '<p>*Interest rate must be a valid number.<p/>'; 
         
     }
      if (( $interest_rate <= 0 ) || ( $interest_rate >= 16))  {
-        $error_message .= '<p>Interest rate must be greater than zero or equal to 15%.<p/>'; 
+        $error_message .= '<p>*Interest rate must be greater than zero or equal to 15%.<p/>'; 
      }     
-     if (( $years < 0) || ($years >= 51)){
-        $error_message .= '<p>Yearly Investment must be greater than zero or equal to 50.<p/>';
+     
+     // validate years 
+     if (empty($years) ) {
+         $error_message .= '<p>*Number of years must be entered.<p/>';
+     }
+     
+      if ( !is_numeric($years) )  {
+        $error_message .= '<p>*Yearly rate must be a valid number.<p/>'; 
+     }
+     
+     if ( $years <= 0 ) {
+        $error_message .= '<p>*Number of Years must be greater than zero.</p>';
+         
+     }
+     if (( $years <0) || ($years >= 51)){
+        $error_message .= '<p>*Yearly Investment must be greater than zero or equal to 50.<p/>';
     }
     
     // if an error message exists, go to the index page
@@ -44,7 +60,7 @@
     else {
         $error_message = ''; }
 
-    // calculate the future value
+    // calculate the future value 
         
     $future_value = $investment;
     for ($i = 1; $i <=  $years; $i++) {
@@ -69,8 +85,7 @@
 <head>
     <title>Future Value Calculator</title>
     <link rel="stylesheet" type="text/css" href="main.css"/>
-</head>
-    
+</head>   
 <body>
     <div id="content">
         <h1>Future Value Calculator</h1>
@@ -86,12 +101,8 @@
 
         <label>Future Value:</label>
         <span><?php echo $future_value_f; ?></span><br />
+        <a href =index.php?f=result">Reset</a>     
         
-        <a href =index.php?f=result">Reset</a>
-        
-       
-    </div>
-    
-</body>
-    
+        </div>
+</body>  
 </html>
