@@ -11,22 +11,42 @@
             $product_description = $_POST['product_description'];
             $list_price = $_POST['list_price'];
            // $dicsount_percent = $_POST['discount_percent'];
-            $dicsount_percent = filter_input(INPUT_POST, 'discount_percent');
-        
+            $discount_percent = filter_input(INPUT_POST, 'discount_percent');
+          
             
-            // needs to be in order 
+            
+           // validation
+            $error_message = '';
+            
+           if(empty($product_description)) {
+               $error_message = 'Product Descriptions required field';
+           }
+            if(!is_string($product_description)) {
+               $error_message = 'is string';
+           }
+            if(empty($list_price)) {
+               $error_message = 'Price needs to be entered';
+           }
+            if(!is_numeric($list_price)) {
+               $error_message = 'List Price missing';
+           }
+           if(empty($discount_percent)) {
+               $error_message = 'Price needs to be entered';
+           }
+            if(!is_numeric($discount_percent)) {
+               $error_message = 'discount required field';
+           } 
+            
+            if (!empty($error_message) ) { 
+        include('index.php'); // needs to be included to display error
+        exit();
+            }
+        
+        // needs to be in order 
             $discount_percent = $_POST ['discount_percent'];
             $discount = $list_price * $discount_percent * .01; 
             $discount_price = $list_price - $discount ;
                             
-           // validation
-            
-           if( empty($$product_description)) {
-               $error_message = 'required field';
-           }
-            
-            if (!empty($error_message) ) {
-        echo '<h1>', $error_message, '</h1>'; }
            
         ?>
         

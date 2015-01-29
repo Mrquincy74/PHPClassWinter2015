@@ -9,7 +9,11 @@
 <body>
     <div id="content">
         <h1>Product Discount Calculator</h1>
+         <?php if (!empty($error_message)) { ?>
+        <p class="error"><?php echo $error_message; ?></p>
+            
         <?php 
+         }
         include('form.html');
         ?>
         

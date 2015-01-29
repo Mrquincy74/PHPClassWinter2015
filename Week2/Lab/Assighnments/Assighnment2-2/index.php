@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,27 +11,15 @@
     <h1>Future Value Calculator</h1>
     <?php if (!empty($error_message)) { ?>
         <p class="error"><?php echo $error_message; ?></p>
-    <?php } // end if
+    <?php
+    
+    }
     
        $investment = rand (1, 100);
        $interest_rate = rand (1, 15);
-       $years = rand (1, 50);
-       
-       $error_message =  '';
-            
-         if (empty ($investment) ) {
-        $error_message = $error_message.'<p>Investment is a required field.</p>'; }
-        
-        if ( empty($interest_rate) ) {
-        $error_message = $error_message.'<p>Interest rate is a required field.</p>'; }
-        
-        if ( empty($years) ) {
-        $error_message = $error_message.'<p>Yearly Investment must be greater than zero or equal to 50</p>'; }
-       
-        if (!empty($error_message) ) {
-        echo '<h1>', $error_message, '</h1>'; }
-        
+       $years = rand (1, 50);   
     ?>
+        
     <form action="display_results.php" method="post">
             
         <div id="data">
@@ -56,4 +44,5 @@
     </form>
     </div>
 </body>
+    
 </html>
