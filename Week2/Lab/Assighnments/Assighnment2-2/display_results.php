@@ -3,10 +3,14 @@
     $investment = filter_input(INPUT_POST, 'investment');
     $interest_rate = filter_input (INPUT_POST,'interest_rate');
     $years = filter_input (INPUT_POST, 'years');
-    // date echo 
-    echo "This calculation was done on" . date("Y-m-d  h:i:sa");
-   
     
+    // date echo worked best for me
+    date_default_timezone_set("America/New_York");
+    echo " This calculation was done on " . date("m/d/Y")."<br>"
+    .date ("h:i:sa");
+            
+   
+
     
 
     // validate investment entry
@@ -14,34 +18,34 @@
     $error_message = ''; 
         
     if ( empty($investment) ) {
-        $error_message .= 'Investment is a required field.'; 
+        $error_message .= '<p>Investment is a required field.</p>'; 
         
     }
      if ( !is_numeric($investment) )  {
-        $error_message .= 'Investment must be a valid number.'; 
+        $error_message .= '<p>Investment must be a valid number.</p>'; 
         
      }
      if ( $investment <= 0 ) {
-        $error_message .= 'Investment must be greater than zero.'; }
+        $error_message .= '<p>Investment must be greater than zero.</p>'; }
 
     // validate interest rate entry
      if ( empty($interest_rate) ) {
-        $error_message = 'Interest rate is a required field.'; 
+        $error_message = '<p>Interest rate is a required field.</p>'; 
         
      }
     if ( !is_numeric($interest_rate) )  {
-        $error_message = 'Interest rate must be a valid number.'; 
+        $error_message = '<p>Interest rate must be a valid number.<p/>'; 
         
     }
      if (( $interest_rate < 0 ) || ( $interest_rate >= 15))  {
-        $error_message = 'Interest rate must be greater than zero or equal to 15%.'; 
+        $error_message = '<p>Interest rate must be greater than zero or equal to 15%.<p/>'; 
         
      }
         
      if (( $years < 0) || ($years >= 50)){
-        $error_message = 'Yearly Investment must be greater than zero or equal to 50.';
+        $error_message = '<p>Yearly Investment must be greater than zero or equal to 50.<p/>';
     }
-
+    
     // if an error message exists, go to the index page
     if ($error_message != '') {
         include('index.php');
