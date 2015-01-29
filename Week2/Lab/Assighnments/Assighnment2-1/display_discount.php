@@ -16,7 +16,7 @@
             
             
            // validation
-            $error_message = '';
+            $error_message = ''; // needs to be available
             
            if(empty($product_description)) {
                $error_message = 'Product Descriptions required field';

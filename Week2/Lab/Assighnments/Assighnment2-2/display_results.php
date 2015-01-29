@@ -1,8 +1,8 @@
 <?php
     // get the data from the form
-    $investment = $_POST['investment'];
-    $interest_rate = $_POST['interest_rate'];
-    $years = $_POST['years'];
+    $investment = filter_input(INPUT_POST, 'investment');
+    $interest_rate = filter_input (INPUT_POST,'interest_rate');
+    $years = filter_input (INPUT_POST, 'years');
     // date echo 
     echo "This calculation was done on" . date("Y-m-d  h:i:sa");
    
@@ -10,34 +10,49 @@
     
 
     // validate investment entry
+    
+    $error_message = ''; 
+        
     if ( empty($investment) ) {
-        $error_message = 'Investment is a required field.'; }
-    else if ( !is_numeric($investment) )  {
-        $error_message = 'Investment must be a valid number.'; }
-    else if ( $investment <= 0 ) {
-        $error_message = 'Investment must be greater than zero.'; }
+        $error_message .= 'Investment is a required field.'; 
+        
+    }
+     if ( !is_numeric($investment) )  {
+        $error_message .= 'Investment must be a valid number.'; 
+        
+     }
+     if ( $investment <= 0 ) {
+        $error_message .= 'Investment must be greater than zero.'; }
 
     // validate interest rate entry
-    else if ( empty($interest_rate) ) {
-        $error_message = 'Interest rate is a required field.'; }
-    else if ( !is_numeric($interest_rate) )  {
-        $error_message = 'Interest rate must be a valid number.'; }
-    else if (( $interest_rate < 0 ) || ( $interest_rate >= 15))  {
-        $error_message = 'Interest rate must be greater than zero or equal to 15%.'; }
+     if ( empty($interest_rate) ) {
+        $error_message = 'Interest rate is a required field.'; 
         
-    else if (( $years < 0) || ($years >= 50)){
+     }
+    if ( !is_numeric($interest_rate) )  {
+        $error_message = 'Interest rate must be a valid number.'; 
+        
+    }
+     if (( $interest_rate < 0 ) || ( $interest_rate >= 15))  {
+        $error_message = 'Interest rate must be greater than zero or equal to 15%.'; 
+        
+     }
+        
+     if (( $years < 0) || ($years >= 50)){
         $error_message = 'Yearly Investment must be greater than zero or equal to 50.';
     }
-
-    // set error message to empty string if no invalid entries
-    else {
-        $error_message = ''; }
 
     // if an error message exists, go to the index page
     if ($error_message != '') {
         include('index.php');
         exit();
     }
+    // set error message to empty string if no invalid entries
+    else {
+        $error_message = ''; }
+
+    
+    
 
     // calculate the future value
     $future_value = $investment;
