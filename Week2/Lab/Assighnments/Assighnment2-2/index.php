@@ -10,7 +10,7 @@
     <div id="content">
     <h1>Future Value Calculator</h1>
     <?php if (!empty($error_message)) { ?>
-        <p class="error"><?php echo $error_message; ?></p>
+        <p class="error_message"><?php echo $error_message ?></p>
     <?php
     
     }

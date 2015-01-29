@@ -29,7 +29,12 @@ label {
 br {
     clear: left;
 }
-.error {
+ error_message {
     color: red;
     font-weight: bold;
+}
+p 
+{
+  color: red;
+  font-weight: bold;
 }
