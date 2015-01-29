@@ -33,10 +33,10 @@
         $error_message .= '<p>Interest rate must be a valid number.<p/>'; 
         
     }
-     if (( $interest_rate < 0 ) || ( $interest_rate >= 15))  {
+     if (( $interest_rate < 0 ) || ( $interest_rate >= 16))  {
         $error_message .= '<p>Interest rate must be greater than zero or equal to 15%.<p/>'; 
      }     
-     if (( $years < 0) || ($years >= 50)){
+     if (( $years < 0) || ($years >= 51)){
         $error_message .= '<p>Yearly Investment must be greater than zero or equal to 50.<p/>';
     }
     
