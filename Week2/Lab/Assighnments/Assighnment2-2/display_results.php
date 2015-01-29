@@ -4,11 +4,6 @@
     $interest_rate = filter_input (INPUT_POST,'interest_rate');
     $years = filter_input (INPUT_POST, 'years');
     
-    // date echo worked best for me
-    date_default_timezone_set("America/New_York"); // time zone set 
-    echo " This calculation was done on " . date("m/d/Y")."<br>" 
-    .date ("h:i:sa");
- 
     // validate investment entry
     
     $error_message = ''; 
@@ -33,7 +28,7 @@
         $error_message .= '<p>Interest rate must be a valid number.<p/>'; 
         
     }
-     if (( $interest_rate < 0 ) || ( $interest_rate >= 16))  {
+     if (( $interest_rate <= 0 ) || ( $interest_rate >= 16))  {
         $error_message .= '<p>Interest rate must be greater than zero or equal to 15%.<p/>'; 
      }     
      if (( $years < 0) || ($years >= 51)){
@@ -49,18 +44,24 @@
     else {
         $error_message = ''; }
 
-    
-    
-
     // calculate the future value
+        
     $future_value = $investment;
     for ($i = 1; $i <=  $years; $i++) {
         $future_value = ($future_value + ($future_value * $interest_rate *.01));
     }
+    
     // apply currency and percent formatting
+    
     $investment_f = '$'.number_format($investment, 2);
     $yearly_rate_f = $interest_rate.'%';
     $future_value_f = '$'.number_format($future_value, 2);
+    
+     // date echo worked best for me
+    
+    date_default_timezone_set("America/New_York"); // time zone set 
+    echo " This calculation was done on " . date("m/d/Y")."<br>" 
+    .date ("h:i:sa");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -69,6 +70,7 @@
     <title>Future Value Calculator</title>
     <link rel="stylesheet" type="text/css" href="main.css"/>
 </head>
+    
 <body>
     <div id="content">
         <h1>Future Value Calculator</h1>
@@ -84,6 +86,12 @@
 
         <label>Future Value:</label>
         <span><?php echo $future_value_f; ?></span><br />
+        
+        <a href =index.php?f=result">Reset</a>
+        
+       
     </div>
+    
 </body>
+    
 </html>

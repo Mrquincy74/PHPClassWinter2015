@@ -17,7 +17,7 @@
         if (empty ($_POST)){
        $investment = rand (1, 100);
        $interest_rate = rand (1, 15);
-       $years = rand (1, 50);
+       $years =  rand (1, 50);
         }
     ?> 
         
