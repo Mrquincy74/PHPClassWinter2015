@@ -16,8 +16,7 @@
         
      }
      if ( $investment <= 0 ) {
-        $error_message .= '<p>*Investment must be greater than zero.</p>';
-        
+        $error_message .= '<p>*Investment must be greater than zero.</p>'; 
         
      }
 
@@ -67,7 +66,7 @@
         $future_value = ($future_value + ($future_value * $interest_rate *.01));
     }
     
-    // apply currency and percent formatting
+    // apply currency and percent formatting=
     
     $investment_f = '$'.number_format($investment, 2);
     $yearly_rate_f = $interest_rate.'%';
@@ -101,7 +100,7 @@
 
         <label>Future Value:</label>
         <span><?php echo $future_value_f; ?></span><br />
-        <a href =index.php?f=result">Reset</a>     
+        <a href ="index.php">Reset</a>     
         
         </div>
 </body>  
