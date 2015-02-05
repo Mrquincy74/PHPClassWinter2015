@@ -19,22 +19,22 @@
             $error_message = ''; // needs to be available
             
            if(empty($product_description)) {
-               $error_message = 'Product Descriptions required field';
+               $error_message .= 'Product Descriptions required field';
            }
             if(!is_string($product_description)) {
-               $error_message = 'is string';
+               $error_message .= 'is string';
            }
             if(empty($list_price)) {
-               $error_message = 'Price needs to be entered';
+               $error_message .= 'Price needs to be entered';
            }
             if(!is_numeric($list_price)) {
-               $error_message = 'List Price missing';
+               $error_message .= 'List Price missing';
            }
            if(empty($discount_percent)) {
-               $error_message = 'Price needs to be entered';
+               $error_message .= 'Price needs to be entered';
            }
             if(!is_numeric($discount_percent)) {
-               $error_message = 'discount required field';
+               $error_message .= 'discount required field';
            } 
             
             if ($error_message !='') { 
