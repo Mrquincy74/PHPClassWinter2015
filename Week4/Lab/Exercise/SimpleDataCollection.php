@@ -62,7 +62,7 @@ and open the template in the editor.
              include './DataCollectionForm.php';
              exit(); }
             
-             $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3306;", "root", "");
+             $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3308;", "root", "");
   
             $dbs = $db->prepare('insert users set fullname = :fullname, phone = :phone, email = :email, zip = :zip');  
             
@@ -82,6 +82,6 @@ and open the template in the editor.
         ?>
         
         <a href="DataCollectionForm.php">Add user</a>
-        <a href="SimpleDataCollectionDisplay.php">View users</a>
+        <a href="DataCollectionDisplay.php">View users</a>
     </body>
 </html>

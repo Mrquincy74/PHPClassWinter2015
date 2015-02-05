@@ -11,7 +11,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body> 
-<?php   $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3306;", "root", "");
+<?php   $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3308;", "root", "");
         $dbs = $db->prepare('select * from users');  
         
     
