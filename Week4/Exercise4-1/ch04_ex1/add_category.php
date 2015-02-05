@@ -1,7 +1,6 @@
 <?php
 // Get the product data
-$category_name = $_POST['category_name'];
-
+$category_name = filter_input (INPUT_POST, 'category_name');
 // Validate inputs
 if (empty($category_name)  ) {
     $error = "Invalid data. Check all fields and try again.";

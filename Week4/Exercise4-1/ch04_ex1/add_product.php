@@ -1,9 +1,9 @@
 <?php
 // Get the product data
-$category_id = $_POST['category_id'];
-$code = $_POST['code'];
-$name = $_POST['name'];
-$price = $_POST['price'];
+$category_id = input_filter (INPUT_POST,'category_id');
+$code = input_filter (INPUT_POST,'code');
+$name = input_filter (INPUT_POST,'name');
+$price =input_filter (INPUT_POST,'price');
 
 // Validate inputs
 if (empty($code) || empty($name) || empty($price) ) {

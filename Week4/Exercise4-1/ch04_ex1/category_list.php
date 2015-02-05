@@ -33,7 +33,7 @@
             <th></th>
   <tr>
     <td>Guitar</td>
-    <th></th>
+    <td></td>
   </tr>
   <tr>
     <td>Base</td>
