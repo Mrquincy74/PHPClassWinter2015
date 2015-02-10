@@ -3,7 +3,7 @@
 
     // Get category ID
     if(!isset($category_id)) {
-        $category_id = $_GET['category_id'];
+        $category_id = filter_input(INPUT_POST, 'categoryID');
         if (!isset($category_id)) {
             $category_id = 1;
         }
@@ -55,7 +55,7 @@
             <ul class="nav">
             <?php foreach ($categories as $category) : ?>
                 <li>
-                <a href="?category_id=<?php echo $category['categoryID']; ?>">
+                <a href="?categoryID=<?php echo $category['categoryID']; ?>">
                     <?php echo $category['categoryName']; ?>
                 </a>
                 </li>
@@ -82,7 +82,7 @@
                               id="delete_product_form">
                         <input type="hidden" name="product_id"
                                value="<?php echo $product['productID']; ?>" />
-                        <input type="hidden" name="category_id"
+                        <input type="hidden" name="categoryID"
                                value="<?php echo $product['categoryID']; ?>" />
                         <input type="submit" value="Delete" />
                     </form></td>

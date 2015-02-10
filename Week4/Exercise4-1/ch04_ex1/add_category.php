@@ -1,6 +1,6 @@
 <?php
 // Get the product data
-$category_name = filter_input (INPUT_POST, 'category_name');
+$category_name = filter_input (INPUT_POST, 'categoryName');
 // Validate inputs
 if (empty($category_name)  ) {
     $error = "Invalid data. Check all fields and try again.";
@@ -9,9 +9,9 @@ if (empty($category_name)  ) {
     // If valid, add the product to the database
     require_once('database.php');
     $query = "INSERT INTO categories
-                 (category_name)
+                 (categoryName)
               VALUES
-                 ($category_name)";
+                 ('$category_name')";
     $db->exec($query);
 
     // Display the Product List page

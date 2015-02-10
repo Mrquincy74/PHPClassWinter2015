@@ -1,7 +1,7 @@
 <?php
 // Get IDs
-$product_id = filter_input (INPUT_POST, '$product_id');
-$category_id = filter_input (INPUT_POST, 'category_id');
+$product_id = filter_input (INPUT_POST, 'productID');
+$category_id = filter_input (INPUT_POST, 'categoryID');
 
 
 // Delete the product from the database

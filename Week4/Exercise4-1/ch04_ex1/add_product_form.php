@@ -28,7 +28,7 @@ $categories = $db->query($query);
                   id="add_product_form">
 
                 <label>Category:</label>
-                <select name="category_id">
+                <select name="categoryID">
                 <?php foreach ($categories as $category) : ?>
                     <option value="<?php echo $category['categoryID']; ?>">
                         <?php echo $category['categoryName']; ?>

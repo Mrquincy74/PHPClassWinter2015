@@ -1,6 +1,6 @@
 <?php
 // Get the product data
-$category_id = input_filter (INPUT_POST,'category_id');
+$category_id = input_filter (INPUT_POST,'categoryID');
 $code = input_filter (INPUT_POST,'code');
 $name = input_filter (INPUT_POST,'name');
 $price =input_filter (INPUT_POST,'price');
