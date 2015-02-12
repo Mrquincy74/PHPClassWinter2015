@@ -15,7 +15,7 @@ and open the template in the editor.
         $email = filter_input (INPUT_POST, 'email');
         $password = filter_input (INPUT_POST, 'password');
         ?>
-         <form action="loginadd.php" method="post" >
+        <form action="Signinadd.php" method="post" >
 
             email:<input type="text" name="email" value="<?php echo $email; ?>" /><br /><br />
             password:<input type="password" name="password" value="<?php echo $password; ?>" /><br /><br />
