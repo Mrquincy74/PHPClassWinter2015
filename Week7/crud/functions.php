@@ -1,5 +1,5 @@
 <?php
-
+// 
 function emailIsValid( $email ) {
      if ( filter_var($email, FILTER_VALIDATE_EMAIL) != false ) {
         return true;
@@ -51,7 +51,7 @@ function displaySucessMsg($msg) {
     }
 }
 
-
+// code connects to data base
 function addNewComments($fullname,$email,$comments,$phone) {
     // remember to change the port
     $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3308;", "root", "");
