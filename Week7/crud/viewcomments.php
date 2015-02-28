@@ -27,7 +27,11 @@
                 echo '<td>',$value['email'] , '</td>';
                 echo '<td>',$value['comments'] , '</td>';
                 echo '<td>',$value['phone'] , '</td>';
-                echo '<td></td>';
+                echo '<td>'
+                    . '<form action="updateComment.php" method="post">'
+                    . '<input type="hidden" name="id" value="',$value['id'],'" /> '
+                    . '<input type="submit" value="update" /> '
+                    . '</form></td>';
                 echo '<td><a href="deleteComment.php?id=',$value['id'],'">Delete</a></td>';
                 echo '</tr>';
             }

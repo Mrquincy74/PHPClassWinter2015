@@ -1,5 +1,5 @@
 <?php
-// 
+
 function emailIsValid( $email ) {
      if ( filter_var($email, FILTER_VALIDATE_EMAIL) != false ) {
         return true;
@@ -51,7 +51,7 @@ function displaySucessMsg($msg) {
     }
 }
 
-// code connects to data base
+
 function addNewComments($fullname,$email,$comments,$phone) {
     // remember to change the port
     $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3308;", "root", "");
@@ -80,6 +80,35 @@ function readAllComments(){
     
     if ( $dbs->execute() && $dbs->rowCount() > 0 ) {          
         $results = $dbs->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    return $results;
+}
+
+
+function deleteComment( $id ) {
+    $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3308;", "root", "");
+    $dbs = $db->prepare('delete from comments where id = :id'); 
+    
+    $dbs->bindParam(':id', $id, PDO::PARAM_INT);
+    
+    if ( $dbs->execute() && $dbs->rowCount() > 0 ) {          
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function getComment( $id ) {
+    $results = array();
+    
+    $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3308;", "root", "");
+    $dbs = $db->prepare('select * from comments where id = :id limit 1'); 
+    
+    $dbs->bindParam(':id', $id, PDO::PARAM_INT);
+    
+    if ( $dbs->execute() && $dbs->rowCount() > 0 ) {          
+        $results = $dbs->fetch(PDO::FETCH_ASSOC);
     }
     
     return $results;

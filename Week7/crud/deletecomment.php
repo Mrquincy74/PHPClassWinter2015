@@ -5,7 +5,8 @@
         <title></title>
     </head>
     <body>
-              <?php
+        <?php
+            include './functions.php';
             $id = filter_input(INPUT_GET, 'id');        
             
             $isDeleted = deleteComment( $id );
