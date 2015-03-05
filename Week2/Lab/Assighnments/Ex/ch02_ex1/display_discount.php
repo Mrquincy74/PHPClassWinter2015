@@ -8,8 +8,8 @@
 <body>
     <?php
             // get data 
-            $product_description = $_POST['product_description'];
-            $list_price = $_POST['list_price'];
+            $product_description = filter_input(INPUT_POST,'product_description');
+            $list_price = filter_input(INPUT_POST,'list_price');
             // needs to be in order 
             $discount_percent = $_POST ['discount_percent'];
             $discount = $list_price * $discount_percent * .01; 
