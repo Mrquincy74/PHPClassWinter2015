@@ -1,8 +1,8 @@
 <?php
     // get the data from the form
-    $investment = $_POST['investment'];
-    $interest_rate = $_POST['interest_rate'];
-    $years = $_POST['years'];
+    $investment = filter_input (INPUT_POST, 'investment');
+    $interest_rate = filter_input (INPUT_POST,'interest_rate');
+    $years = filter_input (INPUT_POST,'years');
     // date echo 
     echo "This calculation was done on" . $date = date('y-m-d');
    
