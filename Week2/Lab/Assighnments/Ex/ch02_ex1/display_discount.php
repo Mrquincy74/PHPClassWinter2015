@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Product Discount Calculator</title>
@@ -10,12 +11,12 @@
             // get data 
             $product_description = filter_input(INPUT_POST,'product_description');
             $list_price = filter_input(INPUT_POST,'list_price');
+            $discount_percent = filter_input(INPUT_POST,'discount_percent');
             // needs to be in order 
-            $discount_percent = $_POST ['discount_percent'];
+            //$discount_percent = $_POST ['discount_percent'];
             $discount = $list_price * $discount_percent * .01; 
             $discount_price = $list_price - $discount ;
-                            
-                 
+                                     
             
         ?>
         
