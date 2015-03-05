@@ -12,7 +12,7 @@
         
         // add validaion
         
-        $password = sha1($password);
+        $password = sha1($password); /*encripts password*/
         
 $pdo = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3308;", "root", "");
 $dbs = $db->prepare('select * from signup where email = :email and password = :password');  
