@@ -80,7 +80,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
     exit();
 }
 
-        break;
+       
 }
 include 'string_tester.php';
 ?>
