@@ -1,6 +1,6 @@
 <?php
 
-function emailIsValid( $email ) {
+function emailIsValid( $email) {
      if ( filter_var($email, FILTER_VALIDATE_EMAIL) != false ) {
         return true;
      } else {
