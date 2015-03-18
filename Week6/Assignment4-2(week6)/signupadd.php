@@ -41,7 +41,7 @@ and open the template in the editor.
         
         if (!empty($error_message)) {
             echo $error_message;
-            include './signupadd.php';
+            include './signup.php';
             exit();
         }
         
