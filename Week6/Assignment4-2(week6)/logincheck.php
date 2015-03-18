@@ -10,22 +10,22 @@ $error_message = '';
 //validation email 
 if (empty($email)) {
 
-    $error_message .= "*email is a required field.<br />";
+    $error_message .= "*Email is a required field.<br />";
 }
 
 if (!is_string($email)) {
-    $error_message .= "*Name must contain valid data.<br />";
+    $error_message .= "*Email must contain valid data.<br />";
 }
 
 if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
-    $error_message .= '<p>email not formatted correctly</p>';
+    $error_message .= "*Email not formatted correctly.<br />";
 }
 
 
 //password
 if (empty($password)) {
 
-    $error_message .= "*password is a required field.<br />";
+    $error_message .= "*Password is a required field.<br />";
 }
 if (!empty($error_message)) {
     echo $error_message;
@@ -48,11 +48,11 @@ $dbs->bindParam(':password', $password, PDO::PARAM_STR);
 if ($dbs->execute() && $dbs->rowCount() > 0) {
     echo '<p>Passcode acepted</p>';
     header('Location: userauthentication.php');
-    //$hashpass = $dbs->fetchAll(PDO::FETCH_ASSOC);
 } else {
-    echo "<h1>$hashpass</h1>";
+    echo '<p>Passcode not acepted</p>';
 }
 ?>
+
  
 
 
