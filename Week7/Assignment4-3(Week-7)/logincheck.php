@@ -7,7 +7,7 @@ $email = filter_input(INPUT_POST, 'email');
 $password = filter_input(INPUT_POST, 'password');
 
 //checks email & password with function 
-if (loginCheck($email, $password) == FALSE) {
+if (loginCheck($email, $password) == TRUE) {
     echo 'Successful Log In!';
 } else {
 

@@ -40,7 +40,7 @@ return false;
 
 function loginCheck($email, $password) {   
 $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3308;", "root", "");
-$dbs = $db->prepare('select into signup set email = :email, password = :password');
+$dbs = $db->prepare('select * from signup where email = :email and password = :password');
 // you must bind the data before you execute
 $haspass = sha1($password);
 $dbs->bindParam(':email', $email, PDO::PARAM_STR);
