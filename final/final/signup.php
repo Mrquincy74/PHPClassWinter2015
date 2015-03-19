@@ -38,17 +38,17 @@ if (!empty($_POST)) {
     if (!validPhone($phone)) {
         $error_message[] = "*Please enter a valid Phone number.<br />";
     }
-    
+
     if (empty($heard_from)) {
-                $error_message[] = 'How Did You Hear About Us&quot; is a required field.';
-            }
-}
-        // count array
-    if (!empty($error_message)) {
-        foreach ($error_message as $value) {
-            echo $value . '<br />';
-        }
+        $error_message[] = 'How Did You Hear About Us&quot; is a required field.';
     }
+}
+// count array
+if (!empty($error_message)) {
+    foreach ($error_message as $value) {
+        echo $value . '<br />';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,9 +60,18 @@ if (!empty($_POST)) {
     <body> 
         <div id="content">
             <h1>Account Sign Up</h1>
-            <form action="#"  method="post" <?php if (empty ($error_message)){
-            echo "display_results";
-                 };?> >
+            <form action="
+                            <?php
+                            if (empty ($error_message) && $_POST){
+            echo "display_results.php";
+            } else
+            {
+            echo "#";
+            }
+
+
+           ;
+            ?>"  method="post"  >
 
 
                 <fieldset>
@@ -75,39 +84,41 @@ if (!empty($_POST)) {
                     <input type="text" name="phone" value="<?php echo $phone; ?>" class="textbox"/>
 
 
-                </fieldset>
+                        </fieldset>
 
-                <fieldset>
-                    <legend>Settings</legend>
+                        <fieldset>
+                            <legend>Settings</legend>
 
-                    <p>How did you hear about us?</p>
-                    <input type="radio" name="heard_from" 
-                    <?php if ($heard_from == "Search Engine") {
-                        echo "checked='checked'";
-                    }
-                    ?> value="Search Engine" />
-                    Search engine<br />
-
-                    <input type="radio" name="heard_from" 
+                            <p>How did you hear about us?</p>
+                            <input type="radio" name="heard_from" 
                     <?php
-                    if ($heard_from == "Friend") {
-                        echo "checked='checked'";
-                    }
-                    ?> value="Friend" />
+                           if ($heard_from == "Search Engine") {
+                           echo "checked='checked'";
+                           }
+                           ?> value="Search Engine" />
+                            Search engine<br />
+
+                            <input type="radio" name="heard_from" 
+                    <?php
+                           if ($heard_from == "Friend") {
+                           echo "checked='checked'";
+                                   }
+                           ?> value="Friend" />
                     Word of mouth<br />
 
                     <input type=radio name="heard_from" <?php
-                    if ($heard_from == "Other") {
-                        echo "checked='checked'";
-                    }
-                    ?>value="Other" />
+                           if ($heard_from == "Other") {
+                           echo "checked='checked'";
+                           }
+                           ?>value="Other" />
                     Other<br />
 
                     <p>Contact via:</p>
                     <select name="contact_via">
                         <option value="email">Email</option>
                         <option value="text">Text Message</option>
-                        <option value="phone">Phone</option>
+                        <option value="phone">Phone</optio
+                               n>
                     </select>
 
                     <p>Comments: (optional)</p>
